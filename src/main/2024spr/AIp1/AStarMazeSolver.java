@@ -117,7 +117,7 @@ public class AStarMazeSolver {
                 {1,2,3,39},{0,0,3,77},{1,75,8,79},{1,75,39,40}};
         boolean isPathExist;
         for (int[] ints : testArray) {
-            System.out.println("startX: " + ints[0] + " startY: " + ints[1] + " endX: " + ints[2] + " ENDy: " + ints[3]);
+            System.out.println("startX: " + ints[0] + " startY: " + ints[1] + " endX: " + ints[2] + " endY: " + ints[3]);
             isPathExist = isMazeConnected(maze, ints[0], ints[1], ints[2], ints[3]);
             if (isPathExist)
                 System.out.println("Yes");
