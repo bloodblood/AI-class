@@ -112,10 +112,10 @@ public class AStarMazeSolver {
     public static void main(String[] args) {
         int[][] maze = new ReadFileToArray().mazeInitial();
         // Initialize your maze here with 0s and 1s
-
         int[][] testArray = {{1,34,15,47},
                 {1,2,3,39},{0,0,3,77},{1,75,8,79},{1,75,39,40}};
         boolean isPathExist;
+        long startTime = System.currentTimeMillis();
         for (int[] ints : testArray) {
             System.out.println("startX: " + ints[0] + " startY: " + ints[1] + " endX: " + ints[2] + " endY: " + ints[3]);
             isPathExist = isMazeConnected(maze, ints[0], ints[1], ints[2], ints[3]);
@@ -125,7 +125,8 @@ public class AStarMazeSolver {
                 System.out.println("No");
         }
 
-
+        long totalTime = System.currentTimeMillis() - startTime;
+        System.out.println("Total time: "+ totalTime+ "ms");
 
     }
 }
