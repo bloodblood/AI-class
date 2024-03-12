@@ -40,7 +40,7 @@ import java.util.*;
 
 
 class CSP {
-    private static final int PRINT_CUTOFF = 40;
+    private static final int PRINT_CUTOFF = 201;
     private static int MAX_STEPS ;
     private static int N;
     private static int[][] board;
@@ -177,6 +177,13 @@ class CSP {
             }
         }
 
+        for(int i=1; (row-i) >= 0 && (col+i) < N; i++){
+            Queen q1 = new Queen(col,row);
+            Queen q2 = new Queen(col-i,row-i);
+            if(q1.isConflict(q2,col,row-i))
+                continue;
+        }
+
         return conflicts;
 
     }
@@ -268,7 +275,7 @@ class CSP {
             int minConCol = 0;
             //if the board is already solved, stop
             if (validBoard(currBoard)){
-                System.out.println("Solved with CSP approach in " + i + " steps.");
+                System.out.println("Solved with CSP approach");
                 if (N < PRINT_CUTOFF) {
                     printBoard(currBoard);
                 }
